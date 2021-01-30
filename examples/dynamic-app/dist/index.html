@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head lang='en'>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <title>ES6 Bundle Example - Rythan Charts</title>
+</head>
+
+<!--
+   This is for illustration only.
+-->
+<body style="margin: 0px;">
+    <div style="display:flex; border:red solid 2px;height:100%; width:100%; position:absolute; box-sizing:border-box;">
+      <div style="display:flex; flex-direction:column; flex-grow:0; align-items:center; padding:8px">
+        <div style="display:flex; flex-direction:column; flex-grow:0; align-items:center">
+          <div style="display:flex; flex-direction:row; flex-grow:0; align-items:center">
+            <button type="button" style="margin: 0px 8px" onclick="attachComponent('container1')">Open Component</button>
+            <button type="button" style="margin: 0px 8px" onclick="unattachComponent('container1')">Close Component</button>
+          </div>
+          <div id="container1" style="margin-top: 20px; width:600px; max-height:400px; height:400px; border:orange solid 2px;"></div>
+        </div>
+      </div>
+    <script>
+      let attachedComponents = [];
+
+      attachComponent = function (elemId) {
+          // import ('https://cdn.rythan.com/js/exhibit/0.2/exhibit.js').then((exhibit) => {
+          import ('./exhibit.js').then((exhibit) => {
+            let elem = document.getElementById(elemId);
+
+              exhibit.namespace.attachDynamicComponent(elem, {
+              }).then((attachedComponent) => {
+                attachedComponents[elemId] = {
+                  component : attachedComponent
+                };
+              });
+        }).catch(error => {
+            console.log(error);
+        });
+      }
+      unattachComponent = function (elemId) {
+        if (attachedComponents[elemId]) {
+          attachedComponents[elemId].component.unattach();
+          delete attachedComponents[elemId];
+        }
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+.exhibit-pane {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+  }
+
+  .exhibit-pane .loading-status {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(80, 80, 80, .12);
+    box-sizing: border-box;
+    opacity: 1;
+    transition-property: opacity;
+    transition-delay: 0.05s;
+    transition-duration: .260s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .exhibit-pane .loading-status .loading-error {
+    overflow: auto;
+    color: rgba(205, 0, 0, 1);
+  }
+
+  .exhibit-pane .loading-status .loading-icon {
+    max-height: 80%;
+    max-width: 80%;
+  }
+  
+  .exhibit-pane .loading-status .loading-icon.spin {
+    animation-name: spin-with-pause;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out; 
+  }
+  
+  .exhibit-pane .loading-status .loading-icon.spin-pause-90 {
+    animation-name: spin-with-pause;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out; 
+  }
+
+  .exhibit-pane .component {
+    /* opacity: 0; */
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    /* z-index: 100; */
+    opacity: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .exhibit-pane .loading-status.hidden {
+    opacity: 0;
+  }
+
+  .rythan-credits {
+    user-select: none;
+  }
+
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+  }
+
+  @keyframes spin-with-pause {
+      0% {
+        transform: rotate(0deg)
+      }
+      8.33%, 25% {
+        transform: rotate(90deg)
+      }
+      33.33%, 50% {
+        transform: rotate(180deg)
+      }
+      58.33%, 75% {
+        transform: rotate(270deg)
+      }
+      83.33%, 100% {
+        transform: rotate(360deg)
+      }
+    }
