@@ -21,8 +21,13 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /\.svg$/,
-        use: 'file-loader'
+        test: /\.(gif|png|jpe|svg?g)$/i,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 8 * 1024 // 4kb
+          }
+        }
       }
     ]
   },
@@ -32,8 +37,13 @@ const config = {
       '.jsx'
     ],
     alias: {
-      // Why is this needed?
+      // Todo - add back react hotloader
       //'react-dom': '@hot-loader/react-dom'
+
+      // These alias are required to dedup if symlinks are used.
+      // When developing the library component we use sym links to support
+      // autoreloading.
+      // There may be another way to do this with webpack but
       'react': path.resolve(__dirname, './node_modules/react'),
       'react-dom': path.resolve(__dirname, './node_modules/react-dom')
     }
