@@ -1,4 +1,4 @@
 export function add(a, b) {
-  console.log('called2');
+  console.log('library called');
   return a + b;
 }
