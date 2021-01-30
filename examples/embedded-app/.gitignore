@@ -1,8 +1,8 @@
 
 .cache/
 coverage/
-#dist/* (we actually save this since we are using git as our publishing mechanism for this example)
-!dist/index.html
+dist/*
+!dist/report.html
 node_modules/
 *.log
 package-lock.json

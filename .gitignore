@@ -1,7 +1,7 @@
 
 .cache/
 coverage/
-dist/*
+#dist/* (we want this to be available because we are using git as our publish repo
 !dist/index.html
 node_modules/
 *.log
