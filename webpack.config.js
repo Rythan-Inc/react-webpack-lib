@@ -38,6 +38,7 @@ const config = {
     ]
   },
   resolve: {
+    symlinks: true,
     extensions: [
       '.js',
       '.jsx'

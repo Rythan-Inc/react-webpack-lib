@@ -36,6 +36,7 @@ const config = {
       '.js',
       '.jsx'
     ],
+    symlinks: true,
     alias: {
       // Todo - add back react hotloader
       //'react-dom': '@hot-loader/react-dom'

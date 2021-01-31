@@ -3,9 +3,6 @@ import React from "react";
 import { Button } from '@material-ui/core';
 
 import { SimpleComponent } from 'mylib';
-import { add } from 'mylib';
-
-console.log('add', add(3,3));
 
 class App extends React.Component {
   render() {
